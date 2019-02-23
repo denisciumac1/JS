@@ -2,7 +2,6 @@ body{
   text-align: center;
   background-color: #456;
 }
-
 .grass{
   width: 64px;
   height: 64px;
@@ -15,4 +14,10 @@ body{
   width: 64px;
   height: 64px;
   background-image: url(miner.png);
+  position: absolute;
+}
+.bomb{
+  width: 64px;
+  height: 64px;
+  background-image: url(bomb.png);
 }
