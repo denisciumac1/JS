@@ -1,0 +1,18 @@
+body{
+  background-image: url(spring.jpg);
+  background-size: cover;
+}
+.flake{
+  width: 10px;
+  height: 10px;
+  background:radial-gradient(#9BF, transparent);
+  border-radius: 10px;
+  position: absolute;
+  animation: fall 0.5s linear;
+}
+
+
+@keyframes fall{
+  0%{ top:0px;}
+  100%{top:500px;}
+}
