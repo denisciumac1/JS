@@ -1,13 +1,12 @@
 var miner_row = 1; //randul in care se afla minerul
 var miner_col = 1; // coloana in care se afla minerul
-
 const BOMB1_COL = Math.floor(Math.random() * 10) + 1;
 const BOMB1_ROW = Math.floor(Math.random() * 10) + 1;
 const BOMB2_COL = Math.floor(Math.random() * 10) + 1;
 const BOMB2_ROW = Math.floor(Math.random() * 10) + 1;
 const BOMB3_COL = Math.floor(Math.random() * 10) + 1;
 const BOMB3_ROW = Math.floor(Math.random() * 10) + 1;
-
+var miner_health = 3;
 
 function action(){
   // console.log(event);
@@ -32,6 +31,16 @@ function moveRight() {
     }else{
       miner_col++;
     }
+    if(miner_row == BOMB1_ROW && miner_col == BOMB1_COL){
+      miner_health--;
+    }else if(miner_row == BOMB2_ROW && miner_col == BOMB2_COL){
+      miner_health--;
+    }else if(miner_row == BOMB3_ROW && miner_col == BOMB3_COL){
+      miner_health--;
+    }
+    if(miner_health <= 0){
+        location.reload();
+      }
     show();
 }
 function moveLeft() {
@@ -40,6 +49,16 @@ function moveLeft() {
     }else{
       miner_col--;
     }
+    if(miner_row == BOMB1_ROW && miner_col == BOMB1_COL){
+      miner_health--;
+    }else if(miner_row == BOMB2_ROW && miner_col == BOMB2_COL){
+      miner_health--;
+    }else if(miner_row == BOMB3_ROW && miner_col == BOMB3_COL){
+      miner_health--;
+    }
+    if(miner_health <= 0){
+        location.reload();
+      }
     show();
 }
 function moveUp(){
@@ -48,6 +67,16 @@ function moveUp(){
   }else{
     miner_row--;
   }
+  if(miner_row == BOMB1_ROW && miner_col == BOMB1_COL){
+    miner_health--;
+  }else if(miner_row == BOMB2_ROW && miner_col == BOMB2_COL){
+    miner_health--;
+  }else if(miner_row == BOMB3_ROW && miner_col == BOMB3_COL){
+    miner_health--;
+  }
+  if(miner_health <= 0){
+      location.reload();
+    }
     show();
 }
 function moveDown() {
@@ -56,12 +85,24 @@ function moveDown() {
     }else{
       miner_row++;
     }
+      if(miner_row == BOMB1_ROW && miner_col == BOMB1_COL){
+        miner_health--;
+      }else if(miner_row == BOMB2_ROW && miner_col == BOMB2_COL){
+        miner_health--;
+      }else if(miner_row == BOMB3_ROW && miner_col == BOMB3_COL){
+        miner_health--;
+      }
+      if(miner_health <= 0){
+          location.reload();
+        }
     show();
 }
 
 function show(){
     var div = document.getElementById('map');
-      div.innerHTML=``;
+    var health = document.getElementById('health');
+        health.innerHTML = `Lifes: ${miner_health}`;
+        div.innerHTML=``;
   for(var row = 1; row<=10; row++ ){
       ///////////////asta e un rand//////////////
     for(var col = 1; col<=10; col++ ){
@@ -87,6 +128,7 @@ function show(){
         }
       //!!!!!!!!BOMB!!!!!!!!!!!!//
       div.innerHTML += `<div class="grass">${content}${content_2}${content_3}${content_4}</div>`;
+      health.innerHTML = `Lifes: ${miner_health}`
        }
        ///////////////asta e un rand//////////////
       }

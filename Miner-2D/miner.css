@@ -31,3 +31,8 @@ body{
   height: 64px;
   background-image: url(bomb.png);
 }
+#health{
+  color: red;
+  font-size: 30px;
+
+}
