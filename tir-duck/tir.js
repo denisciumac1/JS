@@ -1,3 +1,4 @@
+var bullets = 10;
 function addDuck(){
 var lake = document.getElementById('lake');
 var duck =`<div id="duck" class="duck" onclick="killDuck()"></div>`;
@@ -10,7 +11,7 @@ var duck = document.getElementById('duck');
 }
 function audioQuack(){
 var aux = document.getElementById('aux');
-var audio = ` <audio controls src="/media/examples/t-rex-roar.mp3"          autoplay></audio>`;
+var audio = ` <audio src="kreak.mp3"autoplay></audio>`;
 aux.innerHTML = audio;
 }
 function randomBottom(){
@@ -18,12 +19,14 @@ function randomBottom(){
   return bot;
 }
 setInterval(moveDuck, 2000);
-
 function killDuck(){
   audioQuack();
 }
 /////////////////////////START GAME////////////////////
 addDuck();
 
-// var bullets = 10; cite patroane ai))
-//
+function show(){
+var statistics = document.getElementById('statistics');
+statistics.innerHTML += `Bullets remaining: ${bullets}`;
+}
+show();

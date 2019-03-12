@@ -101,7 +101,6 @@ function moveDown() {
 function show(){
     var div = document.getElementById('map');
     var health = document.getElementById('health');
-        health.innerHTML = `Lifes: ${miner_health}`;
         div.innerHTML=``;
   for(var row = 1; row<=10; row++ ){
       ///////////////asta e un rand//////////////
@@ -128,7 +127,7 @@ function show(){
         }
       //!!!!!!!!BOMB!!!!!!!!!!!!//
       div.innerHTML += `<div class="grass">${content}${content_2}${content_3}${content_4}</div>`;
-      health.innerHTML = `Lifes: ${miner_health}`
+      health.innerHTML = `Life's: ${miner_health}`
        }
        ///////////////asta e un rand//////////////
       }

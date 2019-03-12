@@ -29,3 +29,8 @@ background-image: linear-gradient(#aaf, #334);
   50.1%{left:100%; transform: scaleX(1);}
   100%{ left:0%; transform: scaleX(1);}
 }
+#statistics{
+color: red;
+font-size: 30px;
+background-color: black;
+}
