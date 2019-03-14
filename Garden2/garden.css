@@ -34,6 +34,13 @@ body{
   border : 1px solid black;
     float: left;
 }
+.rat{
+  background-image: url(rat.png);
+  width: 48px;
+  height: 48px;
+  border : 1px solid black;
+  float: left;
+}
 /*.coin{
   background-image: url(coin.png);
   width: 48px;
