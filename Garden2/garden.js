@@ -16,14 +16,14 @@ var rat_c = 0;
 var rat_dir= "right";
 
 var garden = [
-    [4,0,0,0,0,0,0,0,0,0],
+    [4,1,0,0,0,2,0,0,0,0],
     [1,0,0,0,0,3,0,0,0,0],
-    [1,0,2,0,0,0,1,0,1,0],
-    [0,0,0,0,0,1,0,0,0,0],
+    [1,0,2,0,2,0,1,0,1,0],
+    [0,3,0,0,0,1,0,0,0,0],
     [0,0,0,2,2,2,0,0,2,0],
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,3,3,3,0,0,3,0],
-    [0,0,0,0,0,0,0,0,1,0],
+    [0,0,1,0,0,0,0,0,1,0],
     [0,0,0,0,0,1,0,0,0,0],
     [0,0,3,0,1,0,0,0,2,0],
 
@@ -37,28 +37,41 @@ function moveRatright(){
   }
 }
 function moveRatleft(){
+  if(rat_c > 0){
   garden[rat_r][rat_c]=EMPTY;
   garden[rat_r][--rat_c]=RAT;
   show();
+  }
 }
 function moveRattup(){
+  if(rat_r > 0){
   garden[rat_r][rat_c]=EMPTY;
   garden[--rat_r][rat_c]=RAT;
   show();
+  }
 }
 function moveRatdown(){
+  if(rat_r < 9){
   garden[rat_r][rat_c]=EMPTY;
   garden[++rat_r][rat_c]=RAT;
   show();
+  }
 }
 function moveRat(){
 //schimbarea directie aliatoriu
   if(Math.round(Math.random()*100)%5==0){
   rat_dir= randomDirection();
 }
-  if(rat_dir=="right"){
-    moveRatright();
-  }
+
+if(rat_dir == "right"){
+        moveRatright();
+    } else if (rat_dir == "left") {
+        moveRatleft();
+    } else if (rat_dir == "up") {
+        moveRattup();
+    } else if (rat_dir == "down") {
+        moveRatdown();
+    }
 }
 
 function randomDirection(){
@@ -66,7 +79,7 @@ function randomDirection(){
   return directions[Math.round(Math.random()*3)];
 }
 
-setInterval(moveRat, 100);
+setInterval(moveRat, 10);
 
 function show(){
   var div = document.getElementById('garden');
@@ -115,4 +128,4 @@ show();
 
 // plasati o capcana de afishat
 // daca rat nimerste in capcana +100
-// var deat, true folse 
+// var deat, true folse
