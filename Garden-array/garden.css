@@ -2,18 +2,35 @@
   background-image: url(melon.png);
   width: 48px;
   height: 48px;
+  border : 1px solid black;
 }
 .tomato{
   background-image: url(tomato.png);
   width: 48px;
   height: 48px;
+  border : 1px solid black;
 }
 .cucumber{
   background-image: url(cucumber.png);
   width: 48px;
   height: 48px;
+  border : 1px solid black;
 }
 .empty{
   width: 48px;
   height: 48px;
+  border : 1px solid black;
+}
+.coin{
+  background-image: url(coin.png);
+  width: 48px;
+  height: 48px;
+  margin-left: 230px;
+  position: absolute;
+}
+#money{
+  color: black;
+  margin-left:  80px;
+   font-size: 25px;
+   margin-top: 12px;
 }
