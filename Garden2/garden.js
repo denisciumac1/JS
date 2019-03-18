@@ -4,11 +4,11 @@ const CUCUMBER  = 1;
 const MELON  =    2;
 const TOMATO =    3;
 const RAT    =    4;
+const TRAP   =    5;
 
 const CUCUMBER_PRICE  = 10;
 const MELON_PRICE  =    20;
 const TOMATO_PRICE =    30;
-
 var money = 100;
 // coordonate rat
 var rat_r = 0;
@@ -16,15 +16,15 @@ var rat_c = 0;
 var rat_dir= "right";
 
 var garden = [
-    [4,1,0,0,0,2,0,0,0,0],
-    [1,0,0,0,0,3,0,0,0,0],
+    [4,1,0,0,0,2,0,0,1,0],
+    [1,0,2,0,0,3,0,0,1,0],
     [1,0,2,0,2,0,1,0,1,0],
-    [0,3,0,0,0,1,0,0,0,0],
+    [0,3,2,0,0,1,0,0,0,0],
     [0,0,0,2,2,2,0,0,2,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,3,3,3,0,0,3,0],
+    [0,0,3,1,0,2,5,0,0,0],
+    [2,0,0,3,3,3,0,0,3,0],
     [0,0,1,0,0,0,0,0,1,0],
-    [0,0,0,0,0,1,0,0,0,0],
+    [0,0,0,0,0,1,0,2,0,0],
     [0,0,3,0,1,0,0,0,2,0],
 
    ];
@@ -61,7 +61,7 @@ function moveRat(){
 //schimbarea directie aliatoriu
   if(Math.round(Math.random()*100)%5==0){
   rat_dir= randomDirection();
-}
+  }
 
 if(rat_dir == "right"){
         moveRatright();
@@ -72,13 +72,18 @@ if(rat_dir == "right"){
     } else if (rat_dir == "down") {
         moveRatdown();
     }
+    //capcana
+    if (rat_r==TRAP && rat_c==TRAP){
+    money=money+100;
+    location.reload();
+    }
 }
+
 
 function randomDirection(){
   var directions = ["right","left","up","down"];
   return directions[Math.round(Math.random()*3)];
 }
-
 setInterval(moveRat, 10);
 
 function show(){
@@ -93,39 +98,35 @@ function show(){
     div.innerHTML+= `<div class="tomato" onclick="gather(TOMATO,${r},${c});"></div> `
       }else if(garden[r][c]== CUCUMBER){
     div.innerHTML+= `<div class="cucumber" onclick="gather(CUCUMBER,${r},${c});"></div> `
-      }else if(garden[r][c]== EMPTY) {
+      }else if(garden[r][c]== EMPTY){
     div.innerHTML+= `<div class="empty"></div> `
-      } else if(garden[r][c]== RAT){
-       div.innerHTML+= `<div class="rat" onclick="gather(RAT,${r},${c});"></div> `
-    }
+      }else if(garden[r][c]== RAT){
+    div.innerHTML+= `<div class="rat" onclick="gather(RAT,${r},${c});"></div> `
+    }else if(garden[r][c]== TRAP){
+    div.innerHTML+= `<div class="trap" onclick="gather(TRAP,${r},${c});"></div> `
   }
 }
    div.innerHTML+= `<div class="coin"></div> `
    div_money.innerHTML =`Money: ${money}`
-
+  }
 }
-
+show();
 
 function gather(vegetable,r,c){
   if(vegetable ==MELON){
   garden[r][c]=EMPTY;
     money=money+MELON_PRICE;
     show();
-  // alert(MELON_PRICE);
     }else if(vegetable == TOMATO){
       garden[r][c]=EMPTY;
-      //  alert(TOMATO_PRICE);
        money=money+TOMATO_PRICE;
        show();
-     } else if(vegetable == CUCUMBER){
+    } else if(vegetable == CUCUMBER){
         garden[r][c]=EMPTY;
         money=money+CUCUMBER_PRICE;
-    //  alert(CUCUMBER_PRICE);
        show();
-  }
+    }
 }
-show();
-
 // plasati o capcana de afishat
 // daca rat nimerste in capcana +100
 // var deat, true folse
