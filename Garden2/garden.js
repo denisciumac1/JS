@@ -4,8 +4,12 @@ const CUCUMBER  = 1;
 const MELON  =    2;
 const TOMATO =    3;
 const RAT    =    4;
-const TRAP   =    5;
+const TRAP    =    5;
+const TRAP_R  =    5;
+const TRAP_C =     6;
 
+
+var timer = null;
 const CUCUMBER_PRICE  = 10;
 const MELON_PRICE  =    20;
 const TOMATO_PRICE =    30;
@@ -73,9 +77,12 @@ if(rat_dir == "right"){
         moveRatdown();
     }
     //capcana
-    if (rat_r==TRAP && rat_c==TRAP){
-    money=money+100;
-    location.reload();
+    if (rat_r==TRAP_R && rat_c==TRAP_C){
+    money = money + 100;
+    var option = confirm("Vrei sa omori sobolanul?");
+    // location.reload();
+    clearInterval(timer) ;
+
     }
 }
 
@@ -84,7 +91,7 @@ function randomDirection(){
   var directions = ["right","left","up","down"];
   return directions[Math.round(Math.random()*3)];
 }
-setInterval(moveRat, 10);
+timer = setInterval(moveRat, 10);
 
 function show(){
   var div = document.getElementById('garden');
