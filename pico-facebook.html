@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Document</title>
+</head>
+<body>
+  <div id="profile" >
+
+  </div>
+  <script>
+  var my_user = {
+    name: "Vasile Pupkin",
+    bdate:"1990-01-02",
+    married: false,
+    likes: 10000,
+    likes_avatar:"http://icons.iconarchive.com/icons/martz90/hex/32/facebook-like-icon.png",
+    avatar:"https://pics.me.me/funny-avatar-mr-bean-38760714.png",
+   languages:["English","Romanish","Russish"],
+
+   friend:[],
+
+   showProfile:function(){
+      var div = document.getElementById('profile');
+      var langs ='<ul><li>' + this.languages.join("</li><li>")+'</li></ul>';
+          //  console.log(langs);
+
+
+      var html =`
+      <div>
+             <h2>${this.name}<small>${this.bdate}</h2></small>
+             <img src="${this.avatar}" width="180"/>
+             <br>
+             <button>
+             <img src="${this.likes_avatar}" />
+              ${this.likes}
+             </button>
+             <hr>
+             ${langs}
+      </div>
+      `;
+
+     div.innerHTML=html;
+
+    }
+
+  };
+
+  my_user.showProfile();
+  </script>
+</body>
+</html>
+
+pagina unui produs
+aliexpress telefon
