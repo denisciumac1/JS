@@ -1,0 +1,8 @@
+.ball{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.ball--red{
+  background-image: radial-gradient(farthest-corner at 45px 45px, white 1px, red 50px, #030 75%);
+}
