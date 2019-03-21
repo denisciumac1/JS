@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Redmi note 7 </title>
+<style>
+.mobile{
+width: 40%;
+float: left;
+margin-left: 100px;
+}
+.detail_phone{
+width: 50%;
+float: right;
+}
+.detail_phone h1{
+font-size: 20px;
+}
+.detail_phone button{
+height: 44px;
+width: 140px;
+background-color: orange;
+}
+
+</style>
+</head>
+<body>
+  <div id="redmi"></div>
+  <script>
+  var telephone = {
+    name: "Global Version - XIAOMI Redmi Note 7 4GB RAM 64GB ROM S660 Octa Core 6.3 Smartphone 2340 x 1080 4000mAh 48MP+13MP Camera",
+    price:"Price: € 186,39 - 204,14 / piece",
+    condition: "Condition: New",
+    color: ["https://ae01.alicdn.com/kf/HTB1F.fbL9zqK1RjSZPxq6A4tVXae/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg",
+            "https://ae01.alicdn.com/kf/HTB1XufmL7PoK1RjSZKbq6x1IXXaL/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg"],
+    shipping:" Shipping: € 6,41 to Moldova via AliExpress Standard Shipping",
+    quantity:" Quantity: -1+",
+    photo:"https://gloimg.gbtcdn.com/soa/gb/pdm-product-pic/Electronic/2019/01/11/goods_img_big-v1/20190111101949_32446.jpg",
+    photo_array: ["https://ae01.alicdn.com/kf/HLB1HYhPKSzqK1RjSZFpq6ykSXXa1/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg",
+                  "https://ae01.alicdn.com/kf/HLB1xS04bEvrK1RjSszfq6xJNVXat/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg",
+                  "https://ae01.alicdn.com/kf/HLB1me45bynrK1RjSsziq6xptpXac/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg",
+                  "https://ae01.alicdn.com/kf/HLB1ZBhIKSzqK1RjSZPxq6A4tVXaV/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg",
+                  "https://ae01.alicdn.com/kf/HLB1QppJKSzqK1RjSZFLq6An2XXax/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone.jpg_50x50.jpg"],
+   heart_icon:"http://icons.iconarchive.com/icons/iconsmind/outline/16/Heart-2-icon.png",
+   showTelephone:function(){
+      var div = document.getElementById('redmi');
+
+      var html =`
+      <div class="mobile">
+         <img src="${this.photo}"/>
+      </div>
+      <div class="detail_phone">
+               <h1>${this.name}</h1>
+               <h3>${this.price}</h3>
+               <h3>${this.condition}</h3>
+
+               <h3>${this.shipping}</h3>
+               <h3>${this.quantity}</h3>
+                <p>
+                  <button>Buy Now</button>
+                  <button>Add to Cart</button>
+                  <button>
+                    <img src="${this.heart_icon}" width="15"/>
+                       462
+                    </button>
+                </p>
+      </div>
+
+      `;
+
+     div.innerHTML=html;
+
+    }
+
+  };
+  telephone.showTelephone();
+// https://www.aliexpress.com/item/Global-Version-XIAOMI-Redmi-Note-7-4GB-RAM-64GB-ROM-S660-Octa-Core-6-3-Smartphone/32980139189.html?spm=2114.search0604.3.61.27aa541fHmpd71&ws_ab_test=searchweb0_0,searchweb201602_3_10065_10068_319_10059_10884_317_10887_10696_321_322_10084_453_10083_454_10103_10618_10307_537_536_10902,searchweb201603_57,ppcSwitch_0&algo_expid=cd25dbf0-3e8f-4a28-b9e5-5ebdf6d03433-8&algo_pvid=cd25dbf0-3e8f-4a28-b9e5-5ebdf6d03433&transAbTest=ae803_5
+  </script>
+</body>
+</html>
