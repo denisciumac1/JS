@@ -45,6 +45,11 @@ background-color: orange;
    showTelephone:function(){
       var div = document.getElementById('redmi');
 
+      var images = ``;
+      for(var i =0; i< this.photo_array.length; i++){
+        images +=  `<img src="${this.photo_array[i]}">`
+      }
+
       var html =`
       <div class="mobile">
          <img src="${this.photo}"/>
@@ -53,7 +58,7 @@ background-color: orange;
                <h1>${this.name}</h1>
                <h3>${this.price}</h3>
                <h3>${this.condition}</h3>
-
+               ${images}
                <h3>${this.shipping}</h3>
                <h3>${this.quantity}</h3>
                 <p>
