@@ -9,7 +9,7 @@ class Ball {
     render(){
       var html=`
       <div class="ball ball--${this.color}">
-        <div>${this.number}</div>
+        <div class="number">${this.number}</div>
       </div>
       `;
       document.write(html);
