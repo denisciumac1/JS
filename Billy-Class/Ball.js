@@ -8,10 +8,10 @@ class Ball {
   }
     render(){
       var html=`
-      <div class="ball ball--${this.color}">
+      <div class="ball ball--${this.color}" style="left: ${this.x}px; right:${this.y}px">
         <div class="number">${this.number}</div>
       </div>
       `;
-      document.write(html);
+      document.getElementById('table').innerHTML+=html;
     }
 }
