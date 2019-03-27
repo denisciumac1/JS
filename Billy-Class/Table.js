@@ -15,6 +15,7 @@ class Table {
   }
   addBall(b){
     this.balls.push(b);
+   
   }
   render(){
     var html=`

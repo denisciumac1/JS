@@ -2,8 +2,8 @@ class Ball {
   constructor(color, number, x, y, speed){
   this.color  =color;
   this.number =number;
-  this.x      =x;
-  this.y      =y;
+  this.x      =Math.floor(Math.random() * 1000) + 1;
+  this.y      =Math.floor(Math.random() * 500) + 1;
   this.speed  =speed;
   }
     render(){
@@ -13,5 +13,5 @@ class Ball {
       </div>
       `;
       document.getElementById('table').innerHTML+=html;
-    }
+ }
 }
