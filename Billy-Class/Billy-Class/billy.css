@@ -3,6 +3,7 @@
   height: 50px;
   border-radius: 50%;
   position: absolute;
+  border: 1px dotted red;
 
 }
 .ball--yellow{

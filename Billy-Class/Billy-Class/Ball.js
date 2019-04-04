@@ -5,9 +5,10 @@ class Ball {
   this.x       = x || Math.round(Math.random()*50);
   this.y       = y || Math.round(Math.random()*50);
   this.a       = a || Math.round(Math.random()*360);
-  this.speedX  =0;
-  this.speedY  =0;
-  this.diameter=50;
+  this.speedX  = 0;
+  this.speedY  = 0;
+  this.diameter= 50;
+  this.collide = false;
   }
     render(){
       var html=`
@@ -18,6 +19,25 @@ class Ball {
       document.getElementById('table').innerHTML+=html;
       var that = this;
       setInterval(function(){
+        // verificam daca aceasta bila se intersecteaza cu altele
+        for(var i=0; i<table.balls.length; i++){
+          if(that.intersects(table.balls[i]) )
+          {
+            console.log("YEEEE!!!");
+            let sx = (that.speedX + table.balls[i].speedX) / 2.1;
+            let sy = (that.speedY + table.balls[i].speedY) / 2.1;
+
+
+
+            that.speedX = sx * (-Math.sign(that.speedX)||1);
+            that.speedY = sy * (-Math.sign(that.speedY)||1);
+
+            table.balls[i].speedX = sx * (-Math.sign(table.balls[i].speedX)||1);
+            table.balls[i].speedY = sy * (-Math.sign(table.balls[i].speedY)||1);
+          }
+        }
+          // //////////////////////////////////
+          setTimeout(function(){ this.collide = false;}, 100)
         that.move();
       },50);
     }
@@ -34,22 +54,22 @@ class Ball {
       if(this.isAtRight()){
         this.speedX *= -1;
       }
-      
+
       if(this.speedX>0&&this.speedX<table.w-this.x){
       this.x  += this.speedX;
-    }else if(this.speedX>1){
+       }else if(this.speedX>1){
         this.X +=table.w-this.X;
      }
      if(this.speedX<0 && this.speedY> -this.x){
      this.x  += this.speedX;
-   }else if(this.speedX<-1){
+      }else if(this.speedX<-1){
        this.x += -this.x;
      }
 
 
       if(this.speedY>0&&this.speedY<table.h-this.y){
       this.y  += this.speedY;
-       }else if(this.speedY>1){
+    }else if(this.speedY>1){
         this.y +=table.h-this.y;
      }
      if(this.speedY<0 && this.speedY> -this.y){
@@ -59,8 +79,8 @@ class Ball {
      }
 
 
-      this.speedX*=0.8;
-      this.speedY*=0.8;
+      this.speedX*= 0.8;
+      this.speedY*= 0.8;
 
       var ball =document.getElementById(`b-${this.number}`);
       ball.style.left =`${this.x}px`;
@@ -83,5 +103,24 @@ class Ball {
     }
     isAtRight(){
       return this.y >= table.w-this.diameter;
+    }
+
+    intersects( ball ){
+      let d = Math.sqrt( Math.pow(ball.x-this.x,2) + Math.pow(ball.y-this.y,2) );
+
+
+    if(
+
+    d <= this.diameter &&
+       this.number !=ball.number &&
+       !this.collide
+    ){
+      this.collide = true;
+
+
+      return true;
+    }else {
+      return false;
+      }
     }
 }
