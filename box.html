@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+</head>
+<body>
+    <div id="box" style="width:100px; height:100px; background: #00FF00;"></div>
+
+    <input id="color" value="#00FF00" type="color"  onChange="OnChange( this.value, color)">
+    <input id="size" type="range" value="100" min="10" max="200" step="10"  onChange="OnChange(size, this.value)">
+
+    <script>
+    	function OnChange(color, size){
+    		var square = document.getElementById('box');
+    		square.style.width = size + 'px';
+    		square.style.height = size + 'px';
+    		square.style.background = color;
+    	 }
+    </script>
+</body>
+</html>
