@@ -3,9 +3,9 @@ class Invader{
     this.id = "i-" + Math.round(Math.random()*10000000);
     this.type ='hombrew';
     this.frames = ["0px -409px", "0px -430px;"]; //cadrele spritului
-    this.x = 0; //random() 0..width window
-    this.y = 0;
-    this.w = 52;
+    this.x = Math.floor(Math.random() * window.innerWidth);
+    this.y = Math.floor(Math.random() * window.innerHeight);
+    this.w = 45;
     this.h = 30;
     this.direction_h =  "right";   //
   }
@@ -37,7 +37,7 @@ class Invader{
       }
 
       that.refresh();
-    },5 );
+    },70 );
   }
 
 

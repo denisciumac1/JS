@@ -2,10 +2,10 @@ class Player{
   constructor(){
     this.id = "p-" + Math.round(Math.random()*10000000);
     this.type ='original';
-    this.frames = ["0px -150px;"]; //cadrele spritului
+    this.frames = ["-210px -172px;"]; //cadrele spritului
     this.x = 0; //random() 0..width window
-    this.y = 300;
-    this.w = 52;
+    this.y = 595;
+    this.w = 41;
     this.h = 30;
     this.direction_h =  "right";   //
   }
@@ -48,6 +48,7 @@ class Player{
       this.direction_h="left";
       // this.moveDown();
     }
+
     this.x +=5;
   }
 
