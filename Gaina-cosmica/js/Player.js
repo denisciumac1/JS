@@ -4,7 +4,7 @@ class Player{
     this.type ='original';
     this.frames = ["-210px -172px;"]; //cadrele spritului
     this.x = 0; //random() 0..width window
-    this.y = 595;
+    this.y = 750;
     this.w = 41;
     this.h = 30;
     this.direction_h =  "right";   //
@@ -17,8 +17,29 @@ class Player{
        this.render()           +
        `</div>`
       //  this.live();
+      document.body.onkeydown = this.action.bind(this);
+      // !!!bind(this) -forteaza transmiterea
    }
+   action(){
+     if(event.code == "Space"){
+       this.shoot();
+     }
+     if(event.key == "ArrowRight"){
+       this.moveRight();
+     }
+     if(event.key == "ArrowLeft"){
+       this.moveLeft();
+     }
+     this.refresh();
+  }
 
+  shoot(){
+    let rocket = new Rocket();
+    rocket.x =this.x +this.w/2 - rocket.w/2;
+    rocket.y =this.y-rocket.h;
+    rocket.addToMap();
+    rocket.live();
+  }
 
    refresh(){
      document.getElementById(this.id).innerHTML = this.render();
@@ -48,7 +69,6 @@ class Player{
       this.direction_h="left";
       // this.moveDown();
     }
-
     this.x +=5;
   }
 
