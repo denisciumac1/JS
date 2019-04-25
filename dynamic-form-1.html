@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Dunamic JS FORM(DOM)</title>
+   <style media="screen">
+     body{background-color: #333; color:white; padding: 2% 20%;}
+     form{background-color: #555; padding: 5%;}
+     form.field{border:1px solid #333; padding: 20px; margin: 5px;}
+     form input{padding: 10px;}
+     button{padding: 10px;}
+   </style>
+</head>
+<body>
+   <h1>Call me back</h1>
+<form id="call-form">
+
+
+ </div>
+
+</form>
+<button onclick="addField()">+</button>
+
+
+
+<script>
+ var n=1;
+  // adaugam un camp nou in formular
+   function addField(){
+   //   let html = `
+   //   <div class="field">
+   //     <input type="text" placeholder="phone number 1">
+   //     <label><input type="checkbox"><span>not my phone</span></label>
+   //     </div>
+   //   `;
+     let html = document.createElement('div');
+     html.className = 'field';
+     let input = document.createElement('input');
+         html.appendChild(input);
+      input.type ="text";
+      input.placeholder = "phone number 1";
+
+      let label = document.createElement('label');
+         html.appendChild(label);
+
+      let input2 = document.createElement('input');
+         label.appendChild(input2);
+         input2.type="checkbox";
+
+      let span = document.createElement('span');
+            label.appendChild(span);
+         span.innerHTML ="not my phone";
+
+     console.log(html);
+
+     let form = document.getElementById('call-form');
+     form.appendChild(html);
+   }
+   addField();
+
+   // sa punem un minus sa scoadem cite 1
+   // removechild
+</script>
+</body>
+</html>
