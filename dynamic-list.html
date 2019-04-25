@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FLIGHT BOOKING</title>
+</head>
+<body>
+
+
+<h1>BOOK YOUR FLIGHT</h1>
+<form>
+     <div class="from">
+        <h2>FROM</h2>
+      <select id="select-from_country">
+        <!-- <option>Romania</option>
+        <option>Moldova</option> -->
+      </select>
+
+      <select id="select-from_hour">
+        <!-- <option>11:00</option>
+        <option>18:00</option> -->
+      </select>
+
+     </div >
+
+     <div class="to">
+
+     </div>
+
+</form>
+
+<script>
+    let from_countries = ["Romania", "Moldova", "Russia"];
+    let from_hours = ["11:00", "15:00", "18:00"];
+
+    function load_from_countries(){
+
+      let select = document.getElementById('select-from_country');
+       for(var i=0; i<from_countries.length; i++){
+
+         let option = document.createElement('option');
+         option.innerHTML = from_countries[i];
+         select.appendChild(option);
+
+       }
+
+
+    }
+   load_from_countries();
+
+   function load_from_hour(){
+
+     let select = document.getElementById('select-from_hour');
+      for(var i=0; i<from_countries.length; i++){
+
+        let option = document.createElement('option');
+        option.innerHTML = from_hours[i];
+        select.appendChild(option);
+      }
+
+   }
+   load_from_hour();
+</script>
+</body>
+</html>
