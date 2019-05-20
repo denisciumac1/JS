@@ -28,3 +28,13 @@
   0%{transform: rotateX(0deg)}
   100%{transform: rotateX(60deg)}
 }
+#money{
+ position: absolute;
+ border: 1px solid black;
+ font-size: 80px;
+ color:red;
+ top:30%;
+ left:5%;
+background-color: black;
+
+}
