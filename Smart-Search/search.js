@@ -1,6 +1,6 @@
 var search_history =[
   "how much does a js dev earn?",
-  "chisinau pizz",
+  "chisinau pizza",
   "reactjs tutorials",
   "angular vs react",
   "zelenskii is president"
@@ -9,16 +9,20 @@ let input =document.querySelector('input');
     input.addEventListener('click',show_history);
 let form =document.querySelector('form');
     form.addEventListener('submit', save_history);
-function save_history(e){
+
+  function save_history(e){
   search_history.unshift( input.value );
-  // de prevenit dublarea in cautare
-  //* case/lower /upper
-  // de prevenit adaugara spacului
-     //*spatiile de prisos
-  e.preventDefault(); //ca se nu se F5 pagina
+  for (var i = search_history.length - 1; i > 0; i--) {
+     if (search_history[i] == search_history[i - 1]) search_history.splice( i, 1);
+     }
+    search_history.pop();
+  e.preventDefault(); //ca sa nu se F5 pagina
+
 }
+
 function show_history(){
-  var dropdown =document.getElementsByClassName('dropdown-menu')[0];
+  var dropdown = document.getElementsByClassName('dropdown-menu')[0];
+
     // dropdown.innerHTML='';
     $(dropdown).empty();
     // while (children.length -> .removechild())
@@ -36,7 +40,7 @@ function show_history(){
    }
    link.innerHTML= '<span class="badge badge-primary" onclick="remove(event)"> x </span>' + search_history[i];
    //de eliminat spanul din textul care este in input ()
-   link.addEventListener('click', select)
+   link.addEventListener('click', select);
    dropdown.appendChild(link);
  }
 
@@ -45,16 +49,19 @@ show_history();
 
 function select(e){
   console.log(e.innerHTML);
-  input.value = e.target.innerHTML;
+  input.value = e.target.innerText;
+
 }
 
 function remove(e){
   e.stopPropagation(); //nu transmite click-ul parintelui <a>
   console.log(e.target);
+
 }
 
 
-
-
-
 // tema cu string si cu array
+// de prevenit dublarea in cautare
+//* case/lower /upper
+// de prevenit adaugara space-ui
+   //*spatiile de prisossd
