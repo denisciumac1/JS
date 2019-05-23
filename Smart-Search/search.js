@@ -38,25 +38,33 @@ function show_history(){
    if(search_history.length - i ==1 ){
      link.style.opacity = 0.4;
    }
-   link.innerHTML= '<span class="badge badge-primary" onclick="remove(event)"> x </span>' + search_history[i];
+   link.innerHTML= `<span id="s-${i}" class="badge badge-primary" onclick="remove(event)"> x </span> <span>`+search_history[i]+'</span>';
    //de eliminat spanul din textul care este in input ()
    link.addEventListener('click', select);
    dropdown.appendChild(link);
  }
 
 }
+
 show_history();
 
 function select(e){
-  console.log(e.innerHTML);
+  console.log(e.target);
+  if(e.target.tagName=="SPAN"){
   input.value = e.target.innerText;
-
+   }
+   if(e.target.tagName=="A"){
+   input.value = e.target.lastElementChild.innerText;
+    }
 }
 
 function remove(e){
   e.stopPropagation(); //nu transmite click-ul parintelui <a>
-  console.log(e.target);
+  let index=(e.target.id.replace('s-',''));
+  show_history();
+  console.log(index);
 
+  search_history.splice(index, 1);
 }
 
 
@@ -65,3 +73,5 @@ function remove(e){
 //* case/lower /upper
 // de prevenit adaugara space-ui
    //*spatiile de prisossd
+
+// tema cu string si cu array
