@@ -1,0 +1,30 @@
+<body onload="load()">
+
+<button onclick="like()">Like</button>
+<button id="clear" onclick="clear()">Clear</button>
+
+<script>
+function like(){
+let n =+ localStorage.getItem('n')||0;
+n++;
+document.querySelector('button').innerHTML=`Like ${n}`;
+localStorage.setItem('n',n);
+}
+
+function load(){
+let n =+ localStorage.getItem('n')||0;
+if(n!=null){
+ document.querySelector('button').innerHTML=`Like ${n}`;
+ }
+}
+
+document.getElementById('clear').onclick = function clear() {
+    let n =+ localStorage.getItem('n');
+           n=0;
+     localStorage.setItem('n',n);
+    document.querySelector('button').innerHTML = `Like `;
+};
+
+</script>
+
+</body>
