@@ -1,0 +1,26 @@
+<body onload="load()">
+
+<input id="range" type="range"  min="1" max="100"  class="range">
+<input id="number" type="number" min="1" max="100"  class="number">
+<br><br>
+<button type="button"   onClick="save()">Save</button>
+
+<script>
+
+  function save() {
+  	var save_number = document.querySelector(".number").value;
+      localStorage.setItem("number", save_number);
+    var save_range = document.querySelector(".range").value;
+      localStorage.setItem("number", save_range);
+    load();
+
+  }
+  function load() {
+    var storedValue = localStorage.getItem("number");
+      document.querySelector(".range").value = storedValue;
+      document.querySelector(".number").value = storedValue;
+  }
+
+
+</script>
+</body>
