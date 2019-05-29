@@ -31,6 +31,7 @@ var p = document.createElement('p');
 var a = document.createElement('a');
             a.className ="btn btn-primary stretched-link";
             a.innerText="Cumpara";
+            a.href = product.id;
             card_body.appendChild(a);
 
 
@@ -43,11 +44,9 @@ var a = document.createElement('a');
 }
 
 function addToCart(e){
-  alert();
-  //index -> dom-ul unui products
-  e.target -> a care a fost clickat
-  <a href ="#p1"  ---->localStorage
-
+  // //index -> dom-ul unui products
+  // e.target -> a care a fost clickat
+  // <a href ="#p1"  ---->localStorage
 }
 
 function renderProductList(){

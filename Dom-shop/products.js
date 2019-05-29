@@ -1,6 +1,6 @@
 var products =[
  {
-    id:"p1";
+    id:"p1",
   name:"Small luxury kebab",
   photos:["images/kebab.jpg"],
   price:{
@@ -14,7 +14,7 @@ var products =[
   },
 
   {
-    id:"p2";
+    id:"p2",
     name:"Mexican kebab",
     photos:["images/kebab2.jpg"],
     price:{
@@ -28,7 +28,7 @@ var products =[
     },
 
     {
-      id:"p3";
+      id:"p3",
       name:"French Pita",
       photos:["images/kebab3.jpg"],
       price:{
