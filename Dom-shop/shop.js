@@ -51,7 +51,8 @@ function addToCart(e){
   }else{
     var products_cart = [];
   }
-
+ //de calculat numarul de produse
+ //timerul sa nu starga mesajul daca el nu mai exista
   products_cart.push(product_id);
   localStorage.setItem('cart', products_cart);
 
