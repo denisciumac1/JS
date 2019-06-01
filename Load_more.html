@@ -1,0 +1,52 @@
+<body>
+    <div class="container">
+            <div class="content">
+                <!-- articles -->
+            </div>
+            <a href="#more">LOAD MORE</a>
+    </div>
+
+    <script>
+        var articles = [
+            {title: "Article 1",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/1/500/500?grayscale"},    // 0
+            {title: "Article 2",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/7/500/500?grayscale"},    // 1
+            {title: "Article 3",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/574/500/500?grayscale"},    // 2
+            {title: "Article 4",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/60/500/500?grayscale"},
+            {title: "Article 5",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/78/500/500?grayscale"},
+            {title: "Article 6",body: "Lorem ipsum dolor ...",img:"https://picsum.photos/id/33/500/500?grayscale"},
+        ];
+
+        var current_article = 0;
+
+        function showArticle( index ){
+            var article = document.createElement('article');
+            var h2 	    = document.createElement('h2');
+                          article.appendChild(h2);
+            var title  = document.createTextNode(`${articles[index].title}`);
+                          h2.appendChild(title);
+            var figure  = document.createElement('figure');
+                          article.appendChild(figure);
+            var img     = document.createElement('img');
+                          img.setAttribute('src',`${articles[index].img}`);
+                          figure.appendChild(img);
+            var p       = document.createElement('p');
+                          article.appendChild(p);
+            var body    = document.createTextNode(`${articles[index].body}`);
+                         p.appendChild(body);
+            var content = document.querySelector('.content');
+                          content.appendChild(article);
+
+            if(current_article < articles.length - 1){
+                var a = document.querySelector('a');
+                    a.addEventListener('click', loadMore);
+              };
+
+        }
+         showArticle(current_article);
+
+        function loadMore(){
+            current_article++;
+             showArticle(current_article);
+        }
+    </script>
+</body>
