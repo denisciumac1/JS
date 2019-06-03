@@ -1,0 +1,32 @@
+<style>
+    .btn-filter{
+        text-decoration: none;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #003;
+        color: #003;
+        border-radius: 3px;
+    }
+    .btn-filter.disabled{
+        border-color: #999;
+        color: #aaa;
+    }
+</style>
+<body>
+    <div class="filters">
+        <a href="#" class="btn-filter disabled">
+            from 2018
+        </a>
+        <a href="#" class="btn-filter">
+            from 2019
+        </a>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+        $( function() {
+      $( "a" ).click( function() {
+        $( this ).toggleClass( "disabled" );
+      });
+    });
+  </script>
+</body>
